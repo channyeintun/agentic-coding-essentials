@@ -267,6 +267,7 @@
                     <li><strong>2. Fresh Context:</strong> Start a new conversation thread specifically for this plan to keep the context window clean.</li>
                     <li><strong>3. Task List (task.md):</strong> A living TODO list that tracks atomic progress.</li>
                     <li><strong>4. Walkthrough:</strong> The final proof of work, documenting what changed and how it was tested.</li>
+                    <li><strong>5. Git Milestones:</strong> Commit after every successful sub-task. If the agent goes off-course, you can <code>git discard</code> or <code>git revert</code> to a known good state instantly.</li>
                 </ul>
             </div>
             <div class="col">
@@ -357,6 +358,18 @@
                 <div>
                     <h4 style="margin: 0 0 5px 0; color: var(--google-blue);">Parallelize with Git Worktrees</h4>
                     <p style="font-size: 14px; margin: 0; color: #3C4043;">For complex refactors, use <strong>Git Worktrees</strong> to let your agent work on a separate branch in an isolated directory. This allows you to continue your own work or review the agent's progress without context switching or merge conflicts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; background: #FEF7E0; border-radius: 20px; padding: 30px; border: 1px solid #FBBC05;">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #E37400; flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 5px 0; color: #E37400;">Safety: Permissions & Sandboxes</h4>
+                    <p style="font-size: 14px; margin: 0; color: #3C4043;">Professional agents operate with a <strong>Safety First</strong> architecture. They will always <strong>request your permission</strong> before running potentially destructive commands. Many also work within a <strong>Sandbox</strong>—an isolated environment where experiments won't affect your main system until you approve them.</p>
                 </div>
             </div>
         </div>
