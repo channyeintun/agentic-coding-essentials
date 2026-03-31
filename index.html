@@ -50,7 +50,7 @@
         .page {
             background: var(--bg-page);
             width: var(--page-width);
-            min-height: var(--page-height);
+            height: var(--page-height);
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             position: relative;
             padding: 80px 100px;
@@ -90,7 +90,7 @@
             font-weight: 700;
             color: var(--text-heading);
             line-height: 1.2;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .pill-blue { background: var(--google-blue-light); color: var(--google-blue); padding: 4px 16px; border-radius: 100px; display: inline-block; }
@@ -108,29 +108,17 @@
         h3 {
             font-size: 22px;
             color: var(--text-heading);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         p {
             font-size: 16px;
             margin-bottom: 24px;
             color: var(--text-main);
+            line-height: 1.6;
         }
 
-        .page-footer {
-            margin-top: auto;
-            border-top: 1px solid #E8EAED;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .page-number {
-            color: #5F6368;
-            font-weight: 500;
-            font-size: 14px;
-        }
 
         .accent-box {
             background: #F8F9FA;
@@ -139,17 +127,51 @@
             border: 1px solid #E8EAED;
             margin-top: 20px;
         }
+
+        @media print {
+            @page {
+                size: 1000px 1414px;
+                margin: 0;
+            }
+            html, body {
+                width: 1000px;
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            body {
+                display: block;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page {
+                width: 1000px;
+                height: 1414px;
+                margin: 0;
+                padding: 80px 100px;
+                box-shadow: none;
+                border: none;
+                page-break-after: always;
+                break-after: page;
+                position: relative;
+                overflow: hidden;
+            }
+            .google-logo, .pill-blue, .pill-red, .pill-green, .pill-yellow {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Eliminate PDF rendering artifacts by removing shadows and blurs */
+            * {
+                box-shadow: none !important;
+                filter: none !important;
+                -webkit-filter: none !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- PAGE 1: Welcome & Mindset -->
     <div class="page" id="page-1">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">The <span class="pill-blue">AI-Native</span><br>Engineer Mindset</h1>
         <div class="content-cols">
             <div class="col">
@@ -190,23 +212,10 @@
            </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">1</div>
-        </footer>
     </div>
 
     <!-- PAGE 2: Mechanics (Tokens & Context) -->
     <div class="page" id="page-2">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Mechanics:<br><span class="pill-red">Tokens & Context</span></h1>
         <div class="content-cols">
             <div class="col">
@@ -241,23 +250,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">2</div>
-        </footer>
     </div>
 
     <!-- PAGE 3: The Disciplined Workflow -->
     <div class="page" id="page-3">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">The <span class="pill-green">Disciplined</span><br>Workflow</h1>
         <div class="content-cols">
             <div class="col">
@@ -302,23 +298,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">3</div>
-        </footer>
     </div>
 
     <!-- PAGE 4: Context Engineering -->
     <div class="page" id="page-4">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Context<br><span class="pill-blue">Engineering</span></h1>
         <div class="content-cols">
             <div class="col">
@@ -375,23 +358,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">4</div>
-        </footer>
     </div>
 
     <!-- PAGE 5: Engineering vs Vibe Coding -->
     <div class="page" id="page-5">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Engineering vs<br><span class="pill-red">"Vibe Coding"</span></h1>
         <div class="content-cols">
             <div class="col">
@@ -411,23 +381,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">5</div>
-        </footer>
     </div>
 
     <!-- PAGE 6: Idea Evolution -->
     <div class="page" id="page-6">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Contextual <br><span class="pill-yellow">Alignment</span></h1>
         <div class="content-cols">
             <div class="col">
@@ -448,43 +405,32 @@
         </div>
 
         <!-- Progress Timeline Illustration -->
-        <div style="margin-top: 60px; position: relative; padding: 20px 0;">
-            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #BDC1C6; transform: translateY(-50%);"></div>
-            <div style="display: flex; justify-content: space-between; position: relative;">
+        <div style="margin-top: 40px; position: relative; padding: 30px; background: white; border-radius: 20px; z-index: 5;">
+            <div style="position: absolute; top: 50%; left: 40px; right: 40px; height: 2px; background: #E8EAED; transform: translateY(-50%); z-index: 1;"></div>
+            <div style="display: flex; justify-content: space-between; position: relative; z-index: 2;">
                 <div style="text-align: center; background: white; padding: 0 10px;">
-                    <div style="width: 20px; height: 20px; background: #E8EAED; border: 2px solid #DADCE0; border-radius: 50%; margin: 4px auto 10px;"></div>
+                    <div style="width: 20px; height: 20px; background: #E8EAED; border: 2px solid #DADCE0; border-radius: 50%; margin: 0 auto 10px;"></div>
                     <div style="font-size: 11px; color: #BDC1C6; font-weight: 700;">INITIAL IDEA</div>
                 </div>
                 <div style="text-align: center; background: white; padding: 0 10px;">
-                    <div style="width: 24px; height: 24px; background: var(--google-blue); border-radius: 50%; margin: 2px auto 10px; box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);"></div>
+                    <div style="width: 24px; height: 24px; background: var(--google-blue); border-radius: 50%; margin: -2px auto 10px; box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);"></div>
                     <div style="font-size: 11px; color: var(--google-blue); font-weight: 700;">EVOLUTION</div>
                 </div>
                 <div style="text-align: center; background: white; padding: 0 10px;">
-                    <div style="width: 36px; height: 36px; background: var(--google-yellow); border-radius: 50%; margin: -4px auto 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(251, 188, 5, 0.5); border: 3px solid white;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    <div style="width: 44px; height: 44px; background: white; border: 2px solid #FBBC05; border-radius: 50%; margin: -12px auto 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                        <div style="width: 32px; height: 32px; background: var(--google-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        </div>
                     </div>
-                    <div style="font-size: 12px; color: #E37400; font-weight: 700;">STATE SNAPSHOT</div>
+                    <div style="font-size: 11px; color: #E37400; font-weight: 700;">STATE SNAPSHOT</div>
                 </div>
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">6</div>
-        </footer>
     </div>
 
     <!-- PAGE 7: Extendable AI (Skills & MCP) -->
     <div class="page" id="page-7">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Extendable AI:<br><span class="pill-green">Skills & MCP</span></h1>
         <div class="content-cols">
             <div class="col">
@@ -517,23 +463,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">7</div>
-        </footer>
     </div>
 
     <!-- PAGE 8: Master Reading List Part 1 -->
     <div class="page" id="page-8">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Master <br><span class="pill-blue">Reading List</span></h1>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px;">
@@ -571,23 +504,10 @@
             </div>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">8</div>
-        </footer>
     </div>
 
     <!-- PAGE 9: Master Reading List Part 2 -->
     <div class="page" id="page-9">
-        <header class="page-header">
-            <div class="google-logo">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; margin-left: 10px; font-weight: 500;">Coding</span>
-            </div>
-        </header>
         <h1 class="main-title">Continue <br><span class="pill-green">Exploring</span></h1>
         
         <div style="background: #F8F9FA; border-radius: 24px; padding: 40px; border: 1px solid #E8EAED;">
@@ -651,13 +571,6 @@
             <p style="font-size: 12px; color: #BDC1C6; margin: 0;">Designed and documented for modern AI-native engineering.</p>
         </div>
 
-        <footer class="page-footer">
-            <div class="google-logo" style="font-size: 18px;">
-                <span>A</span><span>g</span><span>e</span><span>n</span><span>t</span><span>i</span><span>c</span>
-                <span style="color: #5F6368; font-weight: 500;">Coding</span>
-            </div>
-            <div class="page-number">9</div>
-        </footer>
     </div>
     <script>
         function adjustScale() {
