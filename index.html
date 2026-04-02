@@ -305,55 +305,43 @@
         <h1 class="main-title">Context<br><span class="pill-blue">Engineering</span></h1>
         <div class="content-cols">
             <div class="col">
-                <h3>Giving the Agent a Manual</h3>
-                <p>Agents work best when they have clear boundaries and specific instructions. This is where <strong>Context Engineering</strong> comes in.</p>
-                <p>Files like <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or <code>.cursorrules</code> act as a "Project Mission Statement." They tell the agent your preferred tech stack, linting rules, and naming conventions from the very first message.</p>
+                <h3>The Project Mission Statement</h3>
+                <p>Context Engineering starts with giving the agent a "Manual." Files like <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or <code>.cursorrules</code> act as a <strong>Layered Mission Statement</strong>—defining your tech stack and rules across global, directory, and task-specific scopes.</p>
+                <p>By using <strong>Structured Information Architecture</strong> (like tags or clearly defined headers) within these files, you help the model distinguish between high-level constraints and the active task.</p>
             </div>
             <div class="col">
                 <div class="accent-box" style="background: white; border-color: var(--google-blue);">
                     <code style="display: block; font-size: 13px; color: #4285F4;">
-                        # AGENTS.md / CLAUDE.md excerpt<br>
-                        - Use Functional React<br>
-                        - Prefer Vanilla CSS<br>
-                        - Never auto-run DELETE commands<br>
-                        - Always update task.md after edits
+                        # .cursorrules / AGENTS.md excerpt<br>
+                        &lt;system&gt;Use Functional React Best Practices&lt;/system&gt;<br>
+                        &lt;constraints&gt;No external UI libraries&lt;/constraints&gt;<br>
+                        &lt;examples&gt;See src/utils/bench.ts&lt;/examples&gt;<br>
+                        &lt;priority&gt;Performance over Bundle Size&lt;/priority&gt;
                     </code>
                 </div>
-                <p style="font-size: 14px; margin-top: 15px; color: #5F6368; font-style: italic;">"A few lines of rule-setting saves hours of correction."</p>
+                <p style="font-size: 14px; margin-top: 15px; color: #5F6368; font-style: italic;">"A structured mission statement saves hours of correction."</p>
             </div>
         </div>
 
         <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
             <div style="background: #F8F9FA; border-radius: 20px; padding: 25px; border: 1px solid #E8EAED;">
-                <h4 style="margin-top: 0; color: var(--google-blue); font-size: 16px;">Goal-Oriented Instructions</h4>
-                <p style="font-size: 13px; margin-bottom: 0; color: #5F6368;"><strong>Tell the Agent WHAT, not HOW.</strong> Instead of dictating every step, define the desired outcome. Let the agent's reasoning determine the best path, while you focus on verifying the result.</p>
+                <h4 style="margin-top: 0; color: var(--google-blue); font-size: 16px;">Few-Shot Examples</h4>
+                <p style="font-size: 13px; margin-bottom: 0; color: #5F6368;"><strong>Show, don't just tell.</strong> Providing even 1–2 high-fidelity examples of the desired output (few-shot prompting) in your manuals drastically reduces ambiguity and keeps the agent aligned with your style.</p>
             </div>
             <div style="background: #F8F9FA; border-radius: 20px; padding: 25px; border: 1px solid #E8EAED;">
-                <h4 style="margin-top: 0; color: var(--google-red); font-size: 16px;">Instructional Hygiene</h4>
-                <p style="font-size: 13px; margin-bottom: 0; color: #5F6368;"><strong>Avoid Bloat.</strong> Don't add huge, redundant instructions to <code>AGENTS.md</code>. Keep files lean and specific. A focused agent is more accurate and efficient than one buried in noise.</p>
+                <h4 style="margin-top: 0; color: var(--google-red); font-size: 16px;">Negative Constraints</h4>
+                <p style="font-size: 13px; margin-bottom: 0; color: #5F6368;"><strong>Define the Boundaries.</strong> Telling an agent what <u>not</u> to do (e.g., "Don't use Tailwind") is often more powerful than telling it what to do. It prevents technical debt before it's written.</p>
             </div>
         </div>
 
         <div style="margin-top: 40px; background: var(--google-blue-light); border-radius: 20px; padding: 30px; border: 1px solid var(--google-blue);">
             <div style="display: flex; gap: 20px; align-items: flex-start;">
                 <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--google-blue); flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 4.93 4.24 4.24"/><path d="M2 12h8"/><path d="m4.93 19.07 4.24-4.24"/><path d="M12 22v-8"/><path d="m19.07 19.07-4.24-4.24"/><path d="M22 12h-8"/><path d="m19.07 4.93-4.24 4.24"/></svg>
                 </div>
                 <div>
-                    <h4 style="margin: 0 0 5px 0; color: var(--google-blue);">Parallelize with Git Worktrees</h4>
-                    <p style="font-size: 14px; margin: 0; color: #3C4043;">For complex refactors, use <strong>Git Worktrees</strong> to let your agent work on a separate branch in an isolated directory. This allows you to continue your own work or review the agent's progress without context switching or merge conflicts.</p>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 40px; background: #FEF7E0; border-radius: 20px; padding: 30px; border: 1px solid #FBBC05;">
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #E37400; flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                </div>
-                <div>
-                    <h4 style="margin: 0 0 5px 0; color: #E37400;">Safety: Permissions & Sandboxes</h4>
-                    <p style="font-size: 14px; margin: 0; color: #3C4043;">Professional agents operate with a <strong>Safety First</strong> architecture. They will always <strong>request your permission</strong> before running potentially destructive commands. Many also work within a <strong>Sandbox</strong>—an isolated environment where experiments won't affect your main system until you approve them.</p>
+                    <h4 style="margin: 0 0 5px 0; color: var(--google-blue);">Context as a Finite Resource</h4>
+                    <p style="font-size: 14px; margin: 0; color: #3C4043;">Treat your context window like a budget. <strong>Information Hygiene</strong> means ruthlessly filtering out noise—logs, outdated specs, or irrelevant files—to keep the agent’s attention focused on the signal.</p>
                 </div>
             </div>
         </div>
@@ -460,6 +448,30 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div style="font-weight: 700; font-size: 12px;">ANY DATA</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; background: var(--google-blue-light); border-radius: 20px; padding: 30px; border: 1px solid var(--google-blue);">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--google-blue); flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 5px 0; color: var(--google-blue);">Multi-Agent Parallelism (Git Worktrees)</h4>
+                    <p style="font-size: 14px; margin: 0; color: #3C4043;">Scale your capacity by orchestrating <strong>multiple agents</strong> across separate <strong>Git Worktrees</strong>. This allows different agents to work on independent branches in parallel within isolated directories, eliminating context switching and merge conflicts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; background: #FEF7E0; border-radius: 20px; padding: 30px; border: 1px solid #FBBC05;">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #E37400; flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 5px 0; color: #E37400;">Safety: Permissions & Sandboxes</h4>
+                    <p style="font-size: 14px; margin: 0; color: #3C4043;">Extended capabilities require strict <strong>Safety Protocols</strong>. Professional agents require <strong>explicit user permission</strong> before running commands and often work within <strong>Sandboxed environments</strong> to ensure experiments don't affect your primary system.</p>
+                </div>
             </div>
         </div>
 
