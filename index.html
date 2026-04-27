@@ -231,21 +231,43 @@
         </div>
 
         <!-- Desk Illustration -->
-        <div style="margin-top: 40px; background: #F8F9FA; border-radius: 30px; padding: 40px; border: 1px solid #E8EAED; position: relative;">
+        <div style="margin-top: 40px; background: #F8F9FA; border-radius: 30px; padding: 60px 40px; border: 1px solid #E8EAED; position: relative;">
             <div style="display: flex; justify-content: center; align-items: flex-end; gap: 2px;">
-                <div style="width: 300px; height: 180px; border: 4px solid #3C4043; border-bottom: none; border-radius: 20px 20px 0 0; position: relative; padding: 20px;">
-                    <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 0; background: #E8F0FE; border-radius: 10px; padding: 10px; font-size: 10px; color: #4285F4; overflow: hidden;">
-                        Code, Prompts, Feedback, Context, History, Code, Prompts, Feedback, Context, History, Code, Prompts, Feedback...
+                <div style="width: 500px; height: 320px; border: 4px solid #3C4043; border-bottom: none; border-radius: 20px 20px 0 0; position: relative; padding: 40px 25px 15px; background: white; display: flex; flex-direction: column; gap: 8px;">
+                    <!-- Ingredient 1 -->
+                    <div style="height: 32px; background: var(--google-blue-light); border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid var(--google-blue);">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--google-blue); text-transform: uppercase; letter-spacing: 0.5px;">1. System Prompt & Tool Definitions</span>
                     </div>
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: white; padding: 0 10px; font-weight: 700; font-size: 12px;">CONTEXT WINDOW</div>
+                    <!-- Ingredient 2 -->
+                    <div style="height: 32px; background: var(--google-red-light); border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid var(--google-red);">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--google-red); text-transform: uppercase; letter-spacing: 0.5px;">2. Conversation History</span>
+                    </div>
+                    <!-- Ingredient 3 -->
+                    <div style="height: 32px; background: var(--google-green-light); border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid var(--google-green);">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--google-green); text-transform: uppercase; letter-spacing: 0.5px;">3. File Content</span>
+                    </div>
+                    <!-- Ingredient 4 -->
+                    <div style="height: 32px; background: var(--google-yellow-light); border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid #E37400;">
+                        <span style="font-size: 11px; font-weight: 700; color: #E37400; text-transform: uppercase; letter-spacing: 0.5px;">4. Tool Results</span>
+                    </div>
+                    <!-- Ingredient 5 -->
+                    <div style="height: 32px; background: #F3E8FF; border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid #9333EA;">
+                        <span style="font-size: 11px; font-weight: 700; color: #9333EA; text-transform: uppercase; letter-spacing: 0.5px;">5. Sub-agent Responses</span>
+                    </div>
+                    <!-- Ingredient 6 -->
+                    <div style="height: 32px; background: #E6FFFA; border-radius: 6px; display: flex; align-items: center; padding: 0 15px; border: 1px solid #14B8A6;">
+                        <span style="font-size: 11px; font-weight: 700; color: #14B8A6; text-transform: uppercase; letter-spacing: 0.5px;">6. Session Memory</span>
+                    </div>
+
+                    <div style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: white; padding: 0 20px; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: #3C4043; white-space: nowrap; z-index: 10;">THE CONTEXT WINDOW STACK</div>
                 </div>
             </div>
-            <div style="width: 500px; height: 8px; background: #3C4043; margin: 0 auto; border-radius: 4px;"></div>
+            <div style="width: 620px; height: 12px; background: #3C4043; margin: 0 auto; border-radius: 6px; position: relative; z-index: 2;"></div>
             <div style="margin-top: 30px; background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--google-blue); display: flex; gap: 15px; align-items: flex-start;">
                 <div style="color: var(--google-blue); flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
                 <div>
                     <h4 style="margin: 0 0 5px 0; color: var(--google-blue); font-size: 14px;">The "One Task, One Thread" Rule</h4>
-                    <p style="font-size: 13px; margin: 0; color: #5F6368;"><strong>Never do everything in a single window.</strong> Start a fresh context window for each new task. This prevents "context pollution" from previous unrelated work and ensures the agent stays laser-focused on your current goal.</p>
+                    <p style="font-size: 13px; margin: 0; color: #5F6368;"><strong>Never do everything in a single window.</strong> Start a fresh context window for each new task. This prevents "context pollution" and keeps the stack lightweight.</p>
                 </div>
             </div>
         </div>
